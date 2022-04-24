@@ -13,7 +13,7 @@ struct ContentView: View {
             Color(red: 1, green: 0.8, blue: 0)
             Text("Your content")
         }
-        .ignoresSafeArea()
+        .ignoresSafeArea(.all, edges: .bottom)
     }
 }
 
