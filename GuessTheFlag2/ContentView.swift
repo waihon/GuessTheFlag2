@@ -9,6 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        ZStack {
+            Text("Your content")
+        }
+        .background(.red)
+    }
+}
+
+struct StacksContentView: View {
+    var body: some View {
         VStack {
             Spacer()
             Text("First")
