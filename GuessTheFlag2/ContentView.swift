@@ -16,7 +16,7 @@ struct ContentView: View {
             }
 
             Text("Your content")
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
                 .padding(50)
                 .background(.ultraThinMaterial)
         }
