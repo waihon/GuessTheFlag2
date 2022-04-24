@@ -11,8 +11,8 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Text("Your content")
+                .background(.red)
         }
-        .background(.red)
     }
 }
 
