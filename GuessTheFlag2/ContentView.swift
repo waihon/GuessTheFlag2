@@ -18,6 +18,10 @@ struct ContentView: View {
                 Text("Hello, world!")
                 Text("This is inside a stack")
             }
+            ZStack(alignment: .top) {
+                Text("Hello, world!")
+                Text("This is inside a stack")
+            }
             Spacer()
             Spacer()
         }
