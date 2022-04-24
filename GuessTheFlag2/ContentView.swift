@@ -9,9 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        HStack(alignment: .center, spacing: 20) {
-            Text("Hello, world!")
-            Text("This is inside a stack")
+        VStack {
+            Text("First")
+            Text("Second")
+            Text("Third")
+            HStack(alignment: .center, spacing: 20) {
+                Text("Hello, world!")
+                Text("This is inside a stack")
+            }
+            Spacer()
         }
     }
 }
