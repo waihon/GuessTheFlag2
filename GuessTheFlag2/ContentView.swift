@@ -11,18 +11,26 @@ struct ContentView: View {
     var body: some View {
         VStack {
             // Linear gradient with an array of colors
-            LinearGradient(gradient: Gradient(colors: [.white, .black]),
-                startPoint: .top, endPoint: .bottom)
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [.white, .black]),
+                    startPoint: .top, endPoint: .bottom)
+                Text("Linear Gradient with an Array of Colors")
+                    .foregroundColor(.green)
+            }
 
             // Gradient stops allow us to specify both a color and how far
             // along the gradient the color should be used.
             // For example, we could specify that our gradient should be white
             // from the start up to 35% of the available space, then black from
             // 65% of the available space onwards.
-            LinearGradient(gradient: Gradient(stops: [
-                .init(color: .white, location: 0.35),
-                .init(color: .black, location: 0.65)]),
-                startPoint: .top, endPoint: .bottom)
+            ZStack {
+                LinearGradient(gradient: Gradient(stops: [
+                    .init(color: .white, location: 0.35),
+                    .init(color: .black, location: 0.65)]),
+                    startPoint: .top, endPoint: .bottom)
+                Text("Linear Gradient with Stops")
+                    .foregroundColor(.yellow)
+            }
 
             ZStack {
                 RadialGradient(gradient: Gradient(colors: [.blue, .black]),
