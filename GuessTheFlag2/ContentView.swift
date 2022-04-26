@@ -19,8 +19,8 @@ struct ContentView: View {
             // from the start up to 35% of the available space, then black from
             // 65% of the available space onwards.
             LinearGradient(gradient: Gradient(stops: [
-                Gradient.Stop(color: .white, location: 0.35),
-                Gradient.Stop(color: .black, location: 0.65)]),
+                .init(color: .white, location: 0.35),
+                .init(color: .black, location: 0.65)]),
                 startPoint: .top, endPoint: .bottom)
 
         }
