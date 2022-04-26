@@ -13,6 +13,7 @@ struct ContentView: View {
             // Linear gradient with an array of colors
             LinearGradient(gradient: Gradient(colors: [.white, .black]),
                 startPoint: .top, endPoint: .bottom)
+
             // Gradient stops allow us to specify both a color and how far
             // along the gradient the color should be used.
             // For example, we could specify that our gradient should be white
@@ -23,6 +24,8 @@ struct ContentView: View {
                 .init(color: .black, location: 0.65)]),
                 startPoint: .top, endPoint: .bottom)
 
+            RadialGradient(gradient: Gradient(colors: [.blue, .black]),
+                           center: .center, startRadius: 20, endRadius: 150)
         }
     }
 }
