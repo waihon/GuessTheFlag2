@@ -24,8 +24,12 @@ struct ContentView: View {
                 .init(color: .black, location: 0.65)]),
                 startPoint: .top, endPoint: .bottom)
 
-            RadialGradient(gradient: Gradient(colors: [.blue, .black]),
-                           center: .center, startRadius: 20, endRadius: 150)
+            ZStack {
+                RadialGradient(gradient: Gradient(colors: [.blue, .black]),
+                               center: .center, startRadius: 20, endRadius: 150)
+                Text("Radial Gradient")
+                    .foregroundColor(.white)
+            }
 
             ZStack {
                 AngularGradient(gradient: Gradient(colors: [.red, .yellow, .green, .blue, .purple, .red]), center: .center)
