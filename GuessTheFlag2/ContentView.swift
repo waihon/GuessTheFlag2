@@ -9,6 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        VStack {
+            // Linear gradient with an array of colors
+            LinearGradient(gradient: Gradient(colors: [.white, .black]),
+                startPoint: .top, endPoint: .bottom)
+        }
+    }
+}
+
+struct ColorAndFramesContentView: View {
+    var body: some View {
         ZStack {
             VStack(spacing: 0) {
                 Color.red
