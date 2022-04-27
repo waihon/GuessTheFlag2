@@ -11,17 +11,23 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button("Delete selection", role: .destructive, action: executeDelete)
+
             Button("Bordered Button") { }
                 .buttonStyle(.bordered)
+
             Button("Bordered Destructive Button", role: .destructive) { }
                 .buttonStyle(.bordered)
+
             Button("Bordered Prominent Button") { }
                 .buttonStyle(.borderedProminent)
+
             Button("Bordered Prominent Destructive Button", role: .destructive) { }
                 .buttonStyle(.borderedProminent)
+
             Button("Bordered Prominent Tinted Button") { }
                 .buttonStyle(.borderedProminent)
                 .tint(.mint)
+
             Button {
                 print("Button was tapped")
             } label: {
@@ -30,12 +36,14 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .background(.green)
             }
+
             Button {
                 print("Edit button was tapped")
             } label: {
                 Image(systemName: "pencil")
             }
             .buttonStyle(.bordered)
+
             Button {
                 print("Edit button with text was tapped")
             } label: {
