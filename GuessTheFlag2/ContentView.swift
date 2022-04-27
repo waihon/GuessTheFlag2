@@ -9,6 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        Button("Delete selection") {
+            print("Now deleting...")
+        }
+    }
+}
+struct GradientsContentView: View {
+    var body: some View {
         VStack {
             // Linear gradient with an array of colors
             ZStack {
