@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    var body: some View {
+        Text("Hello, world!")
+            .padding()
+    }
+}
+
+struct AlertContentView: View {
     @State private var showingAlert = false
 
     var body: some View {
