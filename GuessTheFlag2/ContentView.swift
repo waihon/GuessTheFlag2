@@ -36,6 +36,12 @@ struct ContentView: View {
                 Image(systemName: "pencil")
             }
             .buttonStyle(.bordered)
+            Button {
+                print("Edit button with text was tapped")
+            } label: {
+                Label("Edit", systemImage: "pencil")
+            }
+            .buttonStyle(.bordered)
         }
     }
 
