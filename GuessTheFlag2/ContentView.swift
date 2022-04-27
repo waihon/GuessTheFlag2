@@ -22,6 +22,14 @@ struct ContentView: View {
             Button("Bordered Prominent Tinted Button") { }
                 .buttonStyle(.borderedProminent)
                 .tint(.mint)
+            Button {
+                print("Button was tapped")
+            } label: {
+                Text("Tap me!")
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(.green)
+            }
         }
     }
 
