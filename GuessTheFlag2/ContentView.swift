@@ -19,6 +19,8 @@ struct ContentView: View {
                 print("Now deleting...")
             }
             Button("Cancel", role: .cancel) { }
+        } message: {
+            Text("Please read this.")
         }
     }
 }
