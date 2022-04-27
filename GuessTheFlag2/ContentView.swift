@@ -12,8 +12,10 @@ struct ContentView: View {
     var correctAnswer = Int.random(in: 0...2)
 
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Text("Tap the flag of")
+            Text(countries[correctAnswer])
+        }
     }
 }
 
