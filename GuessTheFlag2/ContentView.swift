@@ -12,9 +12,20 @@ struct ContentView: View {
     var correctAnswer = Int.random(in: 0...2)
 
     var body: some View {
-        VStack {
-            Text("Tap the flag of")
-            Text(countries[correctAnswer])
+        VStack(spacing: 30) {
+            VStack {
+                Text("Tap the flag of")
+                Text(countries[correctAnswer])
+            }
+
+            ForEach(0..<3) { number in
+                Button {
+                    // Flag was tapped
+                } label: {
+                    Image(countries[number])
+                        .renderingMode(.original)
+                }
+            }
         }
     }
 }
