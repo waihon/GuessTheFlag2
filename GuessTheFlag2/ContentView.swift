@@ -9,11 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Button("Delete selection") {
-            print("Now deleting...")
-        }
+        Button("Delete selection", action: executeDelete)
+    }
+
+    func executeDelete() {
+        print("Now deleting...")
     }
 }
+
 struct GradientsContentView: View {
     var body: some View {
         VStack {
