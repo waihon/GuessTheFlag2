@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showingScore = false
+    @State private var scoreTitle = ""
+
     var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     var correctAnswer = Int.random(in: 0...2)
 
@@ -26,13 +29,21 @@ struct ContentView: View {
 
                 ForEach(0..<3) { number in
                     Button {
-                        // Flag was tapped
+                        flagTapped(number)
                     } label: {
                         Image(countries[number])
                             .renderingMode(.original)
                     }
                 }
             }
+        }
+    }
+
+    func flagTapped(_ number: Int) {
+        if number == correctAnswer {
+            scoreTitle = "Correct"
+        } else {
+            scoreTitle = "Wrong"
         }
     }
 }
