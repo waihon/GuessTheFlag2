@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    static let maxQuestions = 8
+
     @State private var showingScore = false
+    @State private var showingFinalScore = false
     @State private var scoreTitle = ""
 
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
 
     @State private var score = 0
+    @State private var answerCount = 0
 
     var body: some View {
         ZStack {
@@ -72,6 +76,11 @@ struct ContentView: View {
         } message: {
             Text("Your score is \(score)")
         }
+        .alert(scoreTitle, isPresented: $showingFinalScore) {
+            Button("Restart the Game", action: reset)
+        } message: {
+            Text("Your final score is \(score)")
+        }
     }
 
     func flagTapped(_ number: Int) {
@@ -79,15 +88,27 @@ struct ContentView: View {
             scoreTitle = "Correct"
             score += 1
         } else {
-            scoreTitle = "Wrong! That's the flag of \(countries[number])."
+            scoreTitle = "Wrong!\nThat's the flag of \(countries[number])."
         }
 
-        showingScore = true
+        answerCount += 1
+        if (answerCount == Self.maxQuestions) {
+            showingFinalScore = true
+        } else {
+            showingScore = true
+        }
     }
 
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+    }
+
+    func reset() {
+        score = 0
+        answerCount = 0
+
+        askQuestion()
     }
 }
 
