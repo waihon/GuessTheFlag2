@@ -63,6 +63,7 @@ struct ContentView: View {
 
                 Spacer()
             }
+            .padding()
         }
         .alert(scoreTitle, isPresented: $showingScore) {
             Button("Continue", action: askQuestion)
