@@ -23,6 +23,8 @@ struct ContentView: View {
                 .ignoresSafeArea()
 
             VStack {
+                Spacer()
+
                 Text("Guess the Flag")
                     .font(.largeTitle.weight(.bold))
                     .foregroundColor(.white)
@@ -52,9 +54,14 @@ struct ContentView: View {
                 .background(.regularMaterial)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
 
+                Spacer()
+                Spacer()
+
                 Text("Score: ???")
                     .foregroundColor(.white)
                     .font(.title.bold())
+
+                Spacer()
             }
         }
         .alert(scoreTitle, isPresented: $showingScore) {
