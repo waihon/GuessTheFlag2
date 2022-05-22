@@ -33,6 +33,7 @@ struct ContentView: View {
     @State private var answerCount = 0
 
     @State private var spinAmount = [0.0, 0.0, 0.0]
+    @State private var opacityAmount = [1.0, 1.0, 1.0]
 
     var body: some View {
         ZStack {
@@ -65,6 +66,7 @@ struct ContentView: View {
                             FlagImage(imageName: countries[number])
                         }
                         .rotation3DEffect(.degrees(spinAmount[number]), axis: (x: 0, y:1, z:0))
+                        .opacity(opacityAmount[number])
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -97,6 +99,11 @@ struct ContentView: View {
 
     func flagTapped(_ number: Int) {
         withAnimation(.linear(duration: 0.5)) {
+            for num in 0..<3 {
+                if num != number {
+                    opacityAmount[num] = 0.25
+                }
+            }
             spinAmount[number] += 360.0
         }
 
@@ -120,6 +127,7 @@ struct ContentView: View {
         correctAnswer = Int.random(in: 0...2)
 
         spinAmount = [0.0, 0.0, 0.0]
+        opacityAmount = [1.0, 1.0, 1.0]
     }
 
     func reset() {
