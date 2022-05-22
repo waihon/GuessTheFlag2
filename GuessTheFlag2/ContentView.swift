@@ -32,6 +32,8 @@ struct ContentView: View {
     @State private var score = 0
     @State private var answerCount = 0
 
+    @State private var spinAmount = [0.0, 0.0, 0.0]
+
     var body: some View {
         ZStack {
             RadialGradient(stops: [
@@ -62,6 +64,7 @@ struct ContentView: View {
                         } label: {
                             FlagImage(imageName: countries[number])
                         }
+                        .rotation3DEffect(.degrees(spinAmount[number]), axis: (x: 0, y:1, z:0))
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -93,6 +96,10 @@ struct ContentView: View {
     }
 
     func flagTapped(_ number: Int) {
+        withAnimation(.linear(duration: 0.5)) {
+            spinAmount[number] += 360.0
+        }
+
         if number == correctAnswer {
             scoreTitle = "Correct"
             score += 1
@@ -111,6 +118,8 @@ struct ContentView: View {
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+
+        spinAmount = [0.0, 0.0, 0.0]
     }
 
     func reset() {
@@ -271,5 +280,6 @@ struct StacksContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+        //GradientsContentView()
     }
 }
