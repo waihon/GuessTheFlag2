@@ -34,6 +34,7 @@ struct ContentView: View {
 
     @State private var spinAmount = [0.0, 0.0, 0.0]
     @State private var opacityAmount = [1.0, 1.0, 1.0]
+    @State private var scaleAmount = [1.0, 1.0, 1.0]
 
     var body: some View {
         ZStack {
@@ -67,6 +68,7 @@ struct ContentView: View {
                         }
                         .rotation3DEffect(.degrees(spinAmount[number]), axis: (x: 0, y:1, z:0))
                         .opacity(opacityAmount[number])
+                        .scaleEffect(scaleAmount[number])
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -102,6 +104,7 @@ struct ContentView: View {
             for num in 0..<3 {
                 if num != number {
                     opacityAmount[num] = 0.25
+                    scaleAmount[num] = 0.5
                 }
             }
             spinAmount[number] += 360.0
@@ -128,6 +131,7 @@ struct ContentView: View {
 
         spinAmount = [0.0, 0.0, 0.0]
         opacityAmount = [1.0, 1.0, 1.0]
+        scaleAmount = [1.0, 1.0, 1.0]
     }
 
     func reset() {
