@@ -118,10 +118,14 @@ struct ContentView: View {
         }
 
         answerCount += 1
-        if (answerCount == Self.maxQuestions) {
-            showingFinalScore = true
-        } else {
-            showingScore = true
+        // Allow the above animations to be completed first before showing
+        // an alert box.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.75) {
+            if (answerCount == Self.maxQuestions) {
+                showingFinalScore = true
+            } else {
+                showingScore = true
+            }
         }
     }
 
